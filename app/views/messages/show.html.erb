@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Sender:</strong>
+  <%= @message.sender_id %>
+</p>
+
+<p>
+  <strong>Receiver:</strong>
+  <%= @message.receiver_id %>
+</p>
+
+<p>
+  <strong>Msg type:</strong>
+  <%= @message.msg_type %>
+</p>
+
+<p>
+  <strong>Msg text:</strong>
+  <%= @message.msg_text %>
+</p>
+
+<p>
+  <strong>Attachment url:</strong>
+  <%= @message.attachment_url %>
+</p>
+
+<p>
+  <strong>Attachment ext:</strong>
+  <%= @message.attachment_ext %>
+</p>
+
+<%= link_to 'Edit', edit_message_path(@message) %> |
+<%= link_to 'Back', messages_path %>
