@@ -1,10 +1,13 @@
 class User < ActiveRecord::Base
+	after_create :set_slug
 	has_many :messages
 
-	def generate_slug (user)
+
+	def set_slug
 		o = [('a'..'z'), (1..9), ('A'..'Z')].map { |i| i.to_a }.flatten
 		string = (0...8).map { o[rand(o.length)] }.join
-		return user.name.gsub(' ', '-') + '-' + user.id.to_s + string
-	end
+		self.slug =  name.gsub(' ', '-') + '-' + user.id.to_s + string
+		self.save
+    end
 
 end
